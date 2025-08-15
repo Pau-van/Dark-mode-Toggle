@@ -1,4 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Button</title>
+    <style>
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="counterButton">Click me: 0</button>
+    <p id="message"></p>
 
+    <script>
         // Using let for mutable data
         let count = 0;
 
@@ -20,3 +38,8 @@
                 message.textContent = ''; // Clear message for counts less than 10
             }
         });
+    </script>
+</body>
+</html>
+
+
