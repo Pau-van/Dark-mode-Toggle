@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Profile Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .profile {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mini Profile Generator</h1>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name"><br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" placeholder="Enter your age"><br>
+    <label for="color">Favorite Color:</label>
+    <input type="text" id="color" placeholder="Enter your favorite color"><br>
+    <button id="generateProfile">Generate Profile</button>
+
+    <div id="profileOutput" class="profile"></div>
+
+    <script>
+        // DOM selection
+        const nameInput = document.getElementById('name');
+        const ageInput = document.getElementById('age');
+        const colorInput = document.getElementById('color');
+        const generateButton = document.getElementById('generateProfile');
+        const profileOutput = document.getElementById('profileOutput');
+
+        // Event handling with arrow function
+        generateButton.addEventListener('click', () => {
+            const name = nameInput.value.trim();
+            const age = ageInput.value.trim();
+            const color = colorInput.value.trim();
+
+            // Validate input
+            if (!name || !age || !color) {
+                profileOutput.innerHTML = '<p style="color: red;">Please fill out all fields!</p>';
+                return;
+            }
+
+            // Generate profile using template literals
+            profileOutput.innerHTML = `
+                <h2>Profile</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Age:</strong> ${age}</p>
+                <p><strong>Favorite Color:</strong> <span style="color: ${color};">${color}</span></p>
+            `;
+        });
+    </script>
+</body>
+</html>
